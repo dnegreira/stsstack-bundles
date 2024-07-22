@@ -3,7 +3,7 @@ source ~/novarc
 # this is currently assumed to be a /25 network
 EXT_SUBNET=subnet_${OS_USERNAME}-psd-extra
 CIDR=`openstack subnet show $EXT_SUBNET -c cidr -f value`
-ABC=${CIDR%.0*}
+ABC=${CIDR%.*}
 
 export GATEWAY=`openstack subnet show $EXT_SUBNET -c gateway_ip -f value`
 
